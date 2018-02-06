@@ -2639,6 +2639,8 @@ Lorsque les montant apparaîtront sur votre relevé, veuillez revenir sur cette 
     'signature_on_pdf' => 'Afficher sur le PDF',
     'signature_on_pdf_help' => 'Afficher la signature du client sur la facture/soumission PDF.',
     'expired_white_label' => 'La licence sans pub a expirée',
+    'tasks_only' => 'Gestion des tâches',
+    'tasks_only_help' => 'Permettre la gestion des tâches et l\'accès au gestionnaire de temps',
 
 );
 

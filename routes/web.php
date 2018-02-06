@@ -2,6 +2,7 @@
 
 // Application setup
 Route::get('/setup', 'AppController@showSetup');
+Route::get('/setup/permissions', 'AppController@permissionsUpdate');
 Route::post('/setup', 'AppController@doSetup');
 Route::get('/install', 'AppController@install');
 Route::get('/update', 'AppController@update');
@@ -401,6 +402,33 @@ if (Utils::isNinjaDev())
   Auth::loginUsingId(1);
 }
 */
+Route::get('routes', function() {
+    $routeCollection = Route::getRoutes();
 
+    echo "<table style='width:100%'>";
+    echo "<tr>";
+    echo "<td width='10%'><h4>HTTP Method</h4></td>";
+    echo "<td width='10%'><h4>Route</h4></td>";
+    echo "<td width='10%'><h4>Name</h4></td>";
+    echo "<td width='35%'><h4>Corresponding Action</h4></td>";
+    echo "<td width='35%'><h4>Corresponding Permission</h4></td>";
+    echo "</tr>";
+    foreach ($routeCollection as $value) {
+        if(strpos($value->getActionName(), 'App\\Http\\Controllers') === 0) {
+            $class           = explode('\\', substr($value->getActionName(), 0, strpos($value->getActionName(), '@')));
+            $permission_name = Utils::from_camel_case(str_replace('Controller', '', array_pop($class))) . '.' . Utils::from_camel_case(explode('@', $value->getActionName())[1]);
+        } else {
+            $permission_name = 'None';
+        }
+        echo "<tr>";
+        echo "<td>" . $value->getMethods()[0] . "</td>";
+        echo "<td>" . $value->getPath() . "</td>";
+        echo "<td>" . $value->getName() . "</td>";
+        echo "<td>" . $value->getActionName() . "</td>";
+        echo "<td>" . $permission_name . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+});
 // Include static app constants
 require_once app_path() . '/Constants.php';

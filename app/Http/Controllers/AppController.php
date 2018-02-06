@@ -7,6 +7,7 @@ use App\Models\Account;
 use App\Models\Industry;
 use App\Ninja\Mailers\Mailer;
 use App\Ninja\Repositories\AccountRepository;
+use App\Permission;
 use App\Services\EmailService;
 use Artisan;
 use Auth;
@@ -424,5 +425,23 @@ class AppController extends BaseController
         }
 
         return json_encode($data);
+    }
+
+    public function permissionsUpdate() {
+        $permissions_in_database = \App\Models\Permission::pluck('name')->toArray();
+        //dd($permissions_in_database);
+        $permissions_from_routes = [];
+        $routeCollection         = \Route::getRoutes();
+        foreach ($routeCollection as $value) {
+            if(strpos($value->getActionName(), 'App\\Http\\Controllers') === 0) {
+                $class           = explode('\\', substr($value->getActionName(), 0, strpos($value->getActionName(), '@')));
+                $permissions_from_routes[] = Utils::from_camel_case(str_replace('Controller', '', array_pop($class))) . '.' . Utils::from_camel_case(explode('@', $value->getActionName())[1]);
+            }
+        }
+
+        $permission_not_in_database = array_diff($permissions_in_database, $permissions_from_routes);
+
+        dd(array_map(function($v) {return ['name' => $v];}, $permission_not_in_database), $permissions_from_routes, $permissions_in_database);
+        \DB::table('permissions')->insert(array_map(function($v) {return ['name' => $v];}, $permission_not_in_database));
     }
 }

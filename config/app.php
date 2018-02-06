@@ -162,6 +162,7 @@ return [
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         PragmaRX\Google2FALaravel\ServiceProvider::class,
+        Laratrust\LaratrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -272,6 +273,7 @@ return [
         'HTMLUtils' => App\Libraries\HTMLUtils::class,
         'Domain' => App\Constants\Domain::class,
         'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
+        'Laratrust'   => Laratrust\LaratrustFacade::class,
 
     ],
 

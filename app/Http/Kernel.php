@@ -33,6 +33,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\DuplicateSubmissionCheck::class,
             \App\Http\Middleware\QueryLogging::class,
             \App\Http\Middleware\StartupCheck::class,
+            \App\Http\Middleware\PermissionsCheck::class,
         ],
         'api' => [
             \App\Http\Middleware\ApiCheck::class,

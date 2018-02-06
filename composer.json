@@ -57,6 +57,7 @@
         "pragmarx/google2fa-laravel": "^0.1.2",
         "predis/predis": "^1.1",
         "roave/security-advisories": "dev-master",
+        "santigarcor/laratrust": "^5.0",
         "simshaun/recurr": "dev-master",
         "symfony/css-selector": "~3.1",
         "turbo124/laravel-push-notification": "2.*",

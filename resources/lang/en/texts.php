@@ -2649,6 +2649,7 @@ $LANG = array(
     'signature_on_pdf' => 'Show on PDF',
     'signature_on_pdf_help' => 'Show the client signature on the invoice/quote PDF.',
     'expired_white_label' => 'The white label license has expired',
+<<<<<<< Updated upstream
     'return_to_login' => 'Return to Login',
     'convert_products_tip' => 'Note: add a custom field named ":name" to see the exchange rate.',
     'amount_greater_than_balance' => 'The amount is greater than the invoice balance, a credit will be created with the remaining amount.',
@@ -2659,6 +2660,10 @@ $LANG = array(
     'tax_amount' => 'Tax Amount',
     'tax_paid' => 'Tax Paid',
     'none' => 'None',
+    'tasks_only' => 'Task Management',
+    'tasks_only_help' => 'Allow task management and access to the time manager',
+    'tasks_only' => 'Task Management',
+    'tasks_only_help' => 'Allow task management and access to the time manager',
 
     'proposal' => 'Proposal',
     'proposals' => 'Proposals',
@@ -2721,6 +2726,10 @@ $LANG = array(
     'archived_proposal_categories' => 'Successfully archived :count categories',
     'deleted_proposal_categories' => 'Successfully archived :count categories',
     'restored_proposal_category' => 'Successfully restored category',
+=======
+    'tasks_only' => 'Task Management',
+    'tasks_only_help' => 'Allow task management and access to the time manager',
+>>>>>>> Stashed changes
 
 );
 

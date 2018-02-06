@@ -9,6 +9,7 @@ use Event;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laracasts\Presenter\PresentableTrait;
+use Laratrust\Traits\LaratrustUserTrait;
 use Session;
 use App\Models\LookupUser;
 use Illuminate\Notifications\Notifiable;
@@ -21,6 +22,7 @@ class User extends Authenticatable
     use PresentableTrait;
     use SoftDeletes;
     use Notifiable;
+    use LaratrustUserTrait;
 
     /**
      * @var string
@@ -34,6 +36,7 @@ class User extends Authenticatable
         'create_all' => 0b0001,
         'view_all' => 0b0010,
         'edit_all' => 0b0100,
+        'tasks_only' => 0b1000
     ];
 
     /**

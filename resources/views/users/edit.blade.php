@@ -67,6 +67,12 @@
       ->id('permissions_view_all')
       ->text(trans('texts.user_view_all'))
       ->help(trans('texts.view_all_help')) !!}
+  {!! Former::checkbox('permissions[tasks_only]')
+      ->value('tasks_only')
+      ->label('&nbsp;')
+      ->id('permissions_tasks_only')
+      ->text(trans('texts.tasks_only'))
+      ->help(trans('texts.tasks_only_help')) !!}
   {!! Former::checkbox('permissions[edit_all]')
       ->value('edit_all')
       ->label('&nbsp;')
